@@ -43,7 +43,7 @@
 
 <script lang="ts" setup>
 import { useRecorder } from '../composables';
-import { defineEmits, onMounted, onBeforeUnmount, PropType, ref } from 'vue';
+import { defineEmits, onMounted, onBeforeUnmount, PropType, ref, defineExpose } from 'vue';
 import { AudioVisualizationType, AudioVisualizationOptions, AudioVisualizer } from '../utils';
 
 const canvas = ref<HTMLCanvasElement>();

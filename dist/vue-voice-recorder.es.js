@@ -392,7 +392,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     "onArrowKeyLeft",
     "onArrowKeyRight"
   ],
-  setup(__props, { emit: emits }) {
+  setup(__props, { expose, emit: emits }) {
     const props = __props;
     const canvas = ref();
     const delayedStopRecording = () => {
@@ -429,7 +429,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       resumeRecording
     } = useRecorder({
       afterStartRecording: () => emits("afterStartRecording"),
-      afterStopRecording: (blob) => emits("afterStartRecording", blob),
+      afterStopRecording: (blob) => emits("afterStopRecording", blob),
       afterPauseRecording: () => emits("afterPauseRecording"),
       afterResumeRecording: () => emits("afterResumeRecording"),
       getAsMp3: (value) => emits("getAsMp3", value)
@@ -442,6 +442,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
     });
     onBeforeUnmount(() => {
+    });
+    expose({
+      stopRecording: () => stopRecording(),
+      startRecording: () => startRecording(),
+      pauseRecording: () => pauseRecording(),
+      resumeRecording: () => resumeRecording()
     });
     return (_ctx, _cache) => {
       return renderSlot(_ctx.$slots, "default", {
