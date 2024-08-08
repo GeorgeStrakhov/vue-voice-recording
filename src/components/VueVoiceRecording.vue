@@ -156,6 +156,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
 });
 
+defineExpose({
+  stopRecording
+});
+
 </script>
 
 <style lang="scss">
