@@ -157,7 +157,10 @@ onBeforeUnmount(() => {
 });
 
 defineExpose({
-  stopRecording
+  stopRecording: () => stopRecording(),
+  startRecording: () => startRecording(),
+  pauseRecording: () => pauseRecording(),
+  resumeRecording: () => resumeRecording(),
 });
 
 </script>
